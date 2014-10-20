@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Rock Paper Sissors</title>
+    <link href='http://fonts.googleapis.com/css?family=Luckiest+Guy' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="src/style.css">
+    <script src="./src/jquery.js"></script>
+  </head>
+  <body>
+    <header>
+      <h1>Rock Paper Scissors</h1>
+    </header>
+    <main>
+      <section>
+        <artical id="rock">     <img src="img/rock.svg">    </artical>
+        <artical id="paper">    <img src="img/paper.svg">   </artical>
+        <artical id="scissors"> <img src="img/sissors.svg"> </artical>
+      </section>
+    </main>
+    <audio id="wizzBop">
+      <source src='./src/wizzBop.wav'>
+      <source src='./src/wizzBop.mp3'>
+    </audio>
+    <script src="./src/RockPaperSiss.js"></script>
+    <script>
+    $(document).on('ready', function(){
+
+      var gestures = [new Rock, new Paper, new Sissors];
+
+      var play = function(){
+        $('#wizzBop').get(0).play()
+      };
+      $('#rock').click(function() {
+        play();
+        var gesture = new Rock;
+        console.log(gesture);
+      });
+
+    });
+    </script>
+  </body>
+</html>
