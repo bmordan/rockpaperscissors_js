@@ -1,13 +1,13 @@
-function    Rock() { this.is = 'Rock'    }
-function Sissors() { this.is = 'Sissors' }
-function   Paper() { this.is = 'Paper'   }
+function     Rock() { this.is = 'Rock'     }
+function Scissors() { this.is = 'Scissors' }
+function    Paper() { this.is = 'Paper'    }
 
 Rock.prototype.against = function(gesture) {
   if (gesture.is === this.is)   return 'Draw'
-  if (gesture.is === 'Sissors') return true
+  if (gesture.is === 'Scissors') return true
     return false
 }
-Sissors.prototype.against = function(gesture) {
+Scissors.prototype.against = function(gesture) {
   if (gesture.is === this.is) return 'Draw'
   if (gesture.is === 'Paper') return true
     return false
