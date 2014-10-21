@@ -4,6 +4,7 @@
     <title>Rock Paper Sissors</title>
     <link href='http://fonts.googleapis.com/css?family=Luckiest+Guy' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="src/style.css">
+    <meta name="viewport" content="initial-scale=1">
     <script src="./src/jquery.js"></script>
   </head>
   <body>
@@ -21,6 +22,14 @@
       <source src='./src/wizzBop.wav'>
       <source src='./src/wizzBop.mp3'>
     </audio>
+    <audio id="singSong">
+      <source src='./src/singSong.wav'>
+      <source src='./src/singSong.mp3'>
+    </audio>
+    <audio id="woofWoof">
+      <source src='./src/woofWoof.wav'>
+      <source src='./src/woofWoof.mp3'>
+    </audio>
 
     
     <script src="./src/RockPaperSiss.js"></script>
@@ -28,32 +37,32 @@
     $(document).on('ready', function(){
 
       var gestures = [new Rock, new Paper, new Scissors];
-
+      var pickRandom = (Math.floor(Math.random()*3)+1)-1
       var result;
 
       var play = function(){
-        $('#wizzBop').get(0).play()
+        var audios = [$('#wizzBop'),$('#singSong'),$('#woofWoof')]
+        audios[pickRandom].get(0).play()
       };
       var get_ai_gesture = function() {
-        var pickRandom = (Math.floor(Math.random()*3)+1)-1
         return gestures[pickRandom]
       };
       var flashMessage = function(result) {
         if( result) $('header h1').text("Win" )
         if(!result) $('header h1').text("Lose")
-        if(result === 'Draw') $('header h1').text(result)
+        if(result === 'Draw') $('header h1').text(result);
         setTimeout(function(){
-           $('header h1').text("Rock Paper Scissors");
+           $('header h1').text("Rock Paper Scissors")
         },1500)
       };
 
       var flashAnimation = function(gesture) {
         play();
-        $('artical').hide();
-        $('#'+gesture.id).show().toggleClass('win');
+        $('artical').fadeTo(0,0.5);
+        $('#'+gesture.id).fadeTo(0,1).toggleClass('win');
         setTimeout(function() {
           $('#'+gesture.id).toggleClass('win');
-          $('artical').show();
+          $('artical').fadeTo(0.5,1);
         }, 1500)
       };
 
