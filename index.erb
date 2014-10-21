@@ -37,16 +37,18 @@
     $(document).on('ready', function(){
 
       var gestures = [new Rock, new Paper, new Scissors];
-      var pickRandom = (Math.floor(Math.random()*3)+1)-1
+      var pickRandom = function(){
+        return (Math.floor(Math.random()*3)+1)-1
+      }
       var result;
 
       var play = function(){
         var audios = [$('#wizzBop'),$('#singSong'),$('#woofWoof')]
-        audios[pickRandom].get(0).play()
+        audios[pickRandom()].get(0).play()
       };
 
       var get_ai_gesture = function() {
-        return gestures[pickRandom]
+        return gestures[pickRandom()]
       };
       
       var flashMessage = function(result) {
