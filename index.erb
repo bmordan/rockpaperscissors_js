@@ -42,11 +42,6 @@
       }
       var result;
 
-      var play = function(){
-        var audios = [$('#wizzBop'),$('#singSong'),$('#woofWoof')]
-        audios[pickRandom()].get(0).play()
-      };
-
       var get_ai_gesture = function() {
         return gestures[pickRandom()]
       };
@@ -61,7 +56,6 @@
       };
 
       var flashAnimation = function(gesture) {
-        play();
         $('artical').fadeTo(0,0.5);
         $('#'+gesture.id).fadeTo(0,1).toggleClass('win');
         setTimeout(function() {
@@ -70,12 +64,19 @@
         }, 1500)
       };
 
+      var flashAudio = function(result) {
+        if(result === true  ) $('#singSong').get(0).play();
+        if(result === false ) $('#woofWoof').get(0).play();
+        if(result === 'Draw') return
+      }
+    
       $('artical').click(function(){
         var my_gesture = gestures[$(this).data('position-in-gestures-array')];
-        var ai_gesture = get_ai_gesture()
-        var result = my_gesture.against(ai_gesture)
-        flashAnimation($(this).get(0))
-        flashMessage(result)
+        var ai_gesture = get_ai_gesture();
+        var result = my_gesture.against(ai_gesture);
+        flashAnimation($(this).get(0));
+        flashAudio(result);
+        flashMessage(result);
       })
 
     });
