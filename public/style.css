@@ -26,7 +26,7 @@ h1{
 
 @media only screen and (max-width: 24em){ /* width 1 */
   body{
-    background-image: url('../img/mobileBackground.jpg');
+    background-image: url('mobileBackground.jpg');
   }
   h1{
     padding: 1.8em 0em 1.2em 0em;
@@ -43,7 +43,7 @@ h1{
 }
 @media only screen and (min-width: 24em) and (max-width: 44em){ /* width 2 */
   body{
-    background-image: url('../img/tabletBackground.jpg');
+    background-image: url('tabletBackground.jpg');
   }
   h1{
     padding: 1.5em 0em 1.2em 0em;
@@ -61,7 +61,7 @@ h1{
 
 @media only screen and (min-width: 44em) and (max-width: 68em){  /* width 3 */
   body{
-    background-image: url('../img/tabletBackground.jpg');
+    background-image: url('tabletBackground.jpg');
   }
   h1{
     padding: 1.5em 0em 1.2em 0em;
@@ -79,7 +79,7 @@ h1{
 
 @media only screen and (min-width: 44em) and (max-width: 68em) and (min-height: 800px){  /* width 3 Height Portrait*/
   body{
-    background-image: url('../img/mobileBackground.jpg');
+    background-image: url('mobileBackground.jpg');
   }
   h1{
     font-size: 406%;
@@ -96,7 +96,7 @@ h1{
 
 @media only screen and (min-width: 68em){  /* DESKTOPS */
   body{
-    background-image: url('../img/desktopBackground.jpg');
+    background-image: url('desktopBackground.jpg');
   }
   h1{
     font-size: 614%;
@@ -111,22 +111,3 @@ h1{
     margin: 8% 0% 0% 8%;
   }  
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

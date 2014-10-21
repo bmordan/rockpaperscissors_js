@@ -3,9 +3,9 @@
   <head>
     <title>Rock Paper Sissors</title>
     <link href='http://fonts.googleapis.com/css?family=Luckiest+Guy' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="src/style.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
     <meta name="viewport" content="initial-scale=1">
-    <script src="./src/jquery.js"></script>
+    <script src="jquery.js"></script>
   </head>
   <body>
     <header>
@@ -13,26 +13,26 @@
     </header>
     <main>
       <section>
-        <artical id="Rock" data-position-in-gestures-array=0><img src="img/rock.svg"></artical>
-        <artical id="Paper" data-position-in-gestures-array=1>    <img src="img/paper.svg">   </artical>
-        <artical id="Scissors" data-position-in-gestures-array=2> <img src="img/sissors.svg"> </artical>
+        <artical id="Rock" data-position-in-gestures-array=0><img src="rock.svg"></artical>
+        <artical id="Paper" data-position-in-gestures-array=1>    <img src="paper.svg">   </artical>
+        <artical id="Scissors" data-position-in-gestures-array=2> <img src="sissors.svg"> </artical>
       </section>
     </main>
     <audio id="wizzBop">
-      <source src='./src/wizzBop.wav'>
-      <source src='./src/wizzBop.mp3'>
+      <source src='wizzBop.wav'>
+      <source src='wizzBop.mp3'>
     </audio>
     <audio id="singSong">
-      <source src='./src/singSong.wav'>
-      <source src='./src/singSong.mp3'>
+      <source src='singSong.wav'>
+      <source src='singSong.mp3'>
     </audio>
     <audio id="woofWoof">
-      <source src='./src/woofWoof.wav'>
-      <source src='./src/woofWoof.mp3'>
+      <source src='woofWoof.wav'>
+      <source src='woofWoof.mp3'>
     </audio>
 
     
-    <script src="./src/RockPaperSiss.js"></script>
+    <script src="RockPaperSiss.js"></script>
     <script>
     $(document).on('ready', function(){
 
@@ -44,9 +44,11 @@
         var audios = [$('#wizzBop'),$('#singSong'),$('#woofWoof')]
         audios[pickRandom].get(0).play()
       };
+
       var get_ai_gesture = function() {
         return gestures[pickRandom]
       };
+      
       var flashMessage = function(result) {
         if( result) $('header h1').text("Win" )
         if(!result) $('header h1').text("Lose")
