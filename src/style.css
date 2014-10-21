@@ -11,7 +11,6 @@ h1{
   text-align: center;
   color: rgb(255,255,255);
   text-shadow: 3px 1px 4px rgba(0, 0, 0, 1);
-
 }
 main, header{
   width: 90%;
@@ -25,4 +24,7 @@ section{
 artical{
   display: inline-block;
   margin: 0em 2em 0em 2em;
+}
+.win{
+  transform: scale(1.5);
 }

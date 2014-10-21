@@ -12,15 +12,17 @@
     </header>
     <main>
       <section>
-        <artical id="Rock">     <img src="img/rock.svg">    </artical>
-        <artical id="Paper">    <img src="img/paper.svg">   </artical>
-        <artical id="Scissors"> <img src="img/sissors.svg"> </artical>
+        <artical id="Rock" data-position-in-gestures-array=0><img src="img/rock.svg"></artical>
+        <artical id="Paper" data-position-in-gestures-array=1>    <img src="img/paper.svg">   </artical>
+        <artical id="Scissors" data-position-in-gestures-array=2> <img src="img/sissors.svg"> </artical>
       </section>
     </main>
     <audio id="wizzBop">
       <source src='./src/wizzBop.wav'>
       <source src='./src/wizzBop.mp3'>
     </audio>
+
+    
     <script src="./src/RockPaperSiss.js"></script>
     <script>
     $(document).on('ready', function(){
@@ -32,39 +34,36 @@
       var play = function(){
         $('#wizzBop').get(0).play()
       };
-      var ai_gesture = function() {
+      var get_ai_gesture = function() {
         var pickRandom = (Math.floor(Math.random()*3)+1)-1
         return gestures[pickRandom]
       };
       var flashMessage = function(result) {
-        if( result) $('header h1').text("Win")
+        if( result) $('header h1').text("Win" )
         if(!result) $('header h1').text("Lose")
         if(result === 'Draw') $('header h1').text(result)
         setTimeout(function(){
-           $('header h1').text("Rock Paper Scissors")
-        },2500)
+           $('header h1').text("Rock Paper Scissors");
+        },1500)
       };
 
-      $('#Rock').click(function() {
+      var flashAnimation = function(gesture) {
         play();
-        var my_gesture = new Rock;
-        var result = my_gesture.against(ai_gesture());
-        flashMessage(result);
-      });
+        $('artical').hide();
+        $('#'+gesture.id).show().toggleClass('win');
+        setTimeout(function() {
+          $('#'+gesture.id).toggleClass('win');
+          $('artical').show();
+        }, 1500)
+      };
 
-      $('#Scissors').click(function() {
-        play();
-        var my_gesture = new Scissors;
-        var result = my_gesture.against(ai_gesture());
-        flashMessage(result);
-      });
-
-      $('#Paper').click(function() {
-        play();
-        var my_gesture = new Paper;
-        var result = my_gesture.against(ai_gesture());
-        flashMessage(result);
-      });
+      $('artical').click(function(){
+        var my_gesture = gestures[$(this).data('position-in-gestures-array')];
+        var ai_gesture = get_ai_gesture()
+        var result = my_gesture.against(ai_gesture)
+        flashAnimation($(this).get(0))
+        flashMessage(result)
+      })
 
     });
     </script>
