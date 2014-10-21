@@ -1,7 +1,10 @@
-###Rock Paper Scissors
-##in javascript
-![enter image description here](http://upload.wikimedia.org/wikipedia/en/9/9e/JQuery_logo.svg)
+#Rock Paper Scissors
+![using jQuery](http://upload.wikimedia.org/wikipedia/en/9/9e/JQuery_logo.svg)
+###javascript jQuery responsive design
+Our first tentative steps into the browser with the friendly jQuery library as our companion. Click on the screen shot to see the app in action.
 
-Our first tentative steps into the browser with the friendly jQuery library as our companion.
+[![screenshot](img/screenGrab.png)](http://cryptic-hollows-5811.herokuapp.com/)
 
-![screenshot](img/screenGrab.png)
+I spent the afternoon refining my responsive breakpoints. I like using .em as a measure rather than .px I also wanted to build my own sheet from scratch to really feel the breakpoints for myself. I have also spent the afternoon really enjoying the dev tools in the chrome browser, such awesome work by the creators of chrome makes styling quite fun.
+
+ ![screenshot](img/ScreenShot.jpg)
